@@ -43,7 +43,7 @@ export type Publisher = 'BAR_Publisher' | 'FOO_Publisher';
 /**
  * Alias-Typ für gültige Strings bei der Veröffentlichungsplatform eines Videospiels.
  */
-export type Platform = | 'Android' | 'IOS' | 'Windows';
+export type Platform = 'Android' | 'IOS' | 'Windows';
 
 /**
  * Entity-Klasse zu einem relationalen Tabelle
