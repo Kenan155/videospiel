@@ -41,9 +41,9 @@ import { Schlagwort } from './schlagwort.entity.js';
 export type Publisher = 'BAR_Publisher' | 'FOO_Publisher';
 
 /**
- * Alias-Typ für gültige Strings bei der Art eines Buches.
+ * Alias-Typ für gültige Strings bei der Veröffentlichungsplatform eines Videospiels.
  */
-export type BuchArt = 'DRUCKAUSGABE' | 'KINDLE';
+export type Platform = 'Windows' | 'Android' | 'IOS';
 
 /**
  * Entity-Klasse zu einem relationalen Tabelle
@@ -69,8 +69,8 @@ export class Videospiel {
     readonly rating: number | undefined;
 
     @Column('varchar')
-    @ApiProperty({ example: 'DRUCKAUSGABE', type: String })
-    readonly art: BuchArt | undefined;
+    @ApiProperty({ example: 'Windows', type: String })
+    readonly platform: Platform | undefined;
 
     @Column('varchar')
     @ApiProperty({ example: 'FOO_VERLAG', type: String })
