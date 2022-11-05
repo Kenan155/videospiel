@@ -35,10 +35,10 @@ import { DecimalTransformer } from './decimal-transformer.js';
 import { Schlagwort } from './schlagwort.entity.js';
 
 /**
- * Alias-Typ für gültige Strings bei Verlagen.
+ * Alias-Typ für gültige Strings bei Publishern.
  * "Enums get compiled in a big monster of JavaScript".
  */
-export type Publisher = 'BAR_Publisher' | 'FOO_Publisher';
+export type Publisher = 'Activision' | 'Bethesda' | 'EA';
 
 /**
  * Alias-Typ für gültige Strings bei der Veröffentlichungsplatform eines Videospiels.
@@ -73,7 +73,7 @@ export class Videospiel {
     readonly platform: Platform | undefined;
 
     @Column('varchar')
-    @ApiProperty({ example: 'FOO_VERLAG', type: String })
+    @ApiProperty({ example: 'EA', type: String })
     readonly publisher!: Publisher;
 
     @Column({ type: 'decimal', transformer: new DecimalTransformer() })
