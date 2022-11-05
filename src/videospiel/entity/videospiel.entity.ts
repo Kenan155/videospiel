@@ -91,7 +91,7 @@ export class Videospiel {
     readonly datum: Date | string | undefined;
 
     @Column({ type: 'decimal', transformer: new DecimalTransformer() })
-    @ApiProperty({ example: 0.1, type: Number })
+    @ApiProperty({ example: 32.8, type: Number })
     readonly speicherplatz: number | undefined;
 
     @Column('varchar')
@@ -108,7 +108,7 @@ export class Videospiel {
         // kaskadierendes INSERT INTO
         cascade: ['insert'],
     })
-    @ApiProperty({ example: ['JAVASCRIPT', 'TYPESCRIPT'] })
+    @ApiProperty({ example: ['Shooter', 'Rollenspiel'] })
     readonly schlagwoerter!: Schlagwort[];
 
     // https://typeorm.io/entities#special-columns
