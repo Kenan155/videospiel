@@ -1,0 +1,99 @@
+//
+// N e t z w e r k   -   V e r b i n d u n g   n o t w e n d i g
+//
+
+// siehe auch https://studio.apollographql.com/sandbox/explorer
+
+### Suche id, titel, platform und version von allen Videospielen
+POST {{graphQlUrl}}
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+{
+  videospiele {
+    id
+    titel
+    platform
+    version
+  }
+}
+
+### Suche titel, platform, speicherplatz und version von einem Videospiel mit vorhandener Videospiel-ID
+POST {{graphQlUrl}}
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+query ($id: ID! = "00000000-0000-0000-0000-000000000001") {
+  videospiel(id: $id) {
+    titel
+    platform
+    speicherplatz
+    version
+  }
+}
+
+{
+  "id": "00000000-0000-0000-0000-000000000001"
+}
+
+### Suche titel von einem Videospiel mit nicht-vorhandener Videospiel-ID
+POST {{graphQlUrl}}
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+query ($id: ID! = "99999999-9999-9999-9999-999999999999") {
+  videospiel(id: $id) {
+    titel
+  }
+}
+
+{
+  "id": "99999999-9999-9999-9999-999999999999"
+}
+
+### Suche platform von Videospielen mit vorhandenem Titel
+POST {{graphQlUrl}}
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+query ($titel: String = "Battlefield 3") {
+  videospiele(titel: $titel) {
+    platform
+  }
+}
+
+{
+  "titel": "Battlefield 3"
+}
+
+### Suche titel, platform und schlagwoerter von Videospielen mit vorhandenem Titel
+POST {{graphQlUrl}}
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+query ($titel: String = "a") {
+  videospiele(titel: $titel) {
+    titel
+    platform
+    schlagwoerter
+  }
+}
+
+{
+  "titel": "a"
+}
+
+### Suche platform von Videospielen mit NICHT-vorhandenem Titel
+POST {{graphQlUrl}}
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+query ($titel: String = "Zelda") {
+  videospiele(titel: $titel) {
+    platform
+  }
+}
+
+{
+  "titel": "Zelda"
+}
