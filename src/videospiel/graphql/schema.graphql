@@ -1,18 +1,3 @@
-# Copyright (C) 2021 - present Juergen Zimmermann, Hochschule Karlsruhe
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 # siehe app.module.ts
 
 schema {
@@ -20,79 +5,78 @@ schema {
   mutation: Mutation
 }
 
-"Funktionen, um Bücherdaten zu lesen"
+"Funktionen, um Videospieldaten zu lesen"
 type Query {
-  buecher(titel: String): [Buch!]
+  videospiele(titel: String): [Videospiel!]
 
-  buch(id: ID!): Buch
+  videospiel(id: ID!): Videospiel
 }
 
-"Funktionen, um Bücher neu anzulegen, zu aktualisieren oder zu löschen"
+"Funktionen, um Videospiele neu anzulegen, zu aktualisieren oder zu löschen"
 type Mutation {
-  create(input: BuchInput!): String
+  create(input: VideospielInput!): String
 
-  update(input: BuchUpdateInput!): Int
+  update(input: VideospielUpdateInput!): Int
 
   delete(id: ID!): Boolean
 }
 
-"Datenschema zu einem Buch, das gelesen wird"
-type Buch {
+"Datenschema zu einem Videospiel, das gelesen wird"
+type Videospiel {
   id: ID
   version: Int
   titel: String
   rating: Int
-  art: Art
-  verlag: Verlag
+  platform: Platform
+  publisher: Publisher
   preis: Float
   rabatt: Float
-  lieferbar: Boolean
+  speicherplatz: Float
   datum: String
-  isbn: String
   homepage: String
   schlagwoerter: [String]
 }
 
-"Enum-Typ für die Art eines Buches"
-enum Art {
-  DRUCKAUSGABE
-  KINDLE
+"Enum-Typ für den Platform eines Videospiels"
+enum Platform {
+  WINDOWS
+  IOS
+  ANDROID
 }
 
-"Enum-Typ für den Verlag eines Buches"
-enum Verlag {
-  FOO_VERLAG
-  BAR_VERLAG
+"Enum-Typ für den Publisher eines Videospiels"
+enum Publisher {
+  EA
+  ACTIVISION
+  BETHESDA
 }
 
-"Daten für ein neues Buch"
-input BuchInput {
+"Daten für ein neues Videospiel"
+input VideospielInput {
   titel: String!
   rating: Int
-  art: Art
-  verlag: Verlag!
+  platform: Platform 
+  publisher: Publisher!
   preis: Float
   rabatt: Float
-  lieferbar: Boolean
+  speicherplatz: Float
   datum: String
-  isbn: String
   homepage: String
   schlagwoerter: [String]
 }
 
-"Daten für ein zu änderndes Buch"
-input BuchUpdateInput {
+"Daten für ein zu änderndes Videospiel"
+input VideospielUpdateInput {
   id: ID
   version: Int
   titel: String!
   rating: Int
-  art: Art
-  verlag: Verlag!
+  platform: Platform
+  publisher: Publisher!
   preis: Float
   rabatt: Float
-  lieferbar: Boolean
+  speicherplatz: Float
   datum: String
-  isbn: String
   homepage: String
   schlagwoerter: [String]
 }
