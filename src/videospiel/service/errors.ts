@@ -25,7 +25,6 @@ export interface TitelExists {
 /**
  * Union-Type für Fehler beim Neuanlegen eines Videospiels:
  * - {@linkcode ConstraintViolations}
- * - {@linkcode IsbnExists}
  * - {@linkcode TitelExists}
  */
 export type CreateError = ConstraintViolations | TitelExists;

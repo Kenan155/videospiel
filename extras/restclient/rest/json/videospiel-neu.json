@@ -1,0 +1,12 @@
+{
+  "titel": "Testrest",
+  "rating": 1,
+  "platform": "Windows",
+  "publisher": "EA",
+  "preis": 99.9,
+  "rabatt": 0.1,
+  "datum": "2022-01-31",
+  "speicherplatz": 56.7,
+  "homepage": "https://test.de/",
+  "schlagwoerter": ["Shooter", "Rollenspiel"]
+}

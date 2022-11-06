@@ -18,8 +18,8 @@
 #           helmfile destroy
 
 releases:
-  - name: buch
+  - name: videospiel
     namespace: acme
-    chart: extras/buch
-    values: [extras/buch/dev.yaml]
+    chart: extras/videospiel
+    values: [extras/videospiel/dev.yaml]
     #wait: true
