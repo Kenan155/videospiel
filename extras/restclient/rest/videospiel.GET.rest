@@ -1,0 +1,44 @@
+//
+// N e t z w e r k   -  V e r b i n d u n g   n o t w e n d i g
+//
+
+### Suche alle Videospiele
+GET {{restUrl}}
+
+### Suche mit vorhandener Videospiel-ID
+GET {{restUrl}}/00000000-0000-0000-0000-000000000001
+
+### Suche mit vorhandener Videospiel-ID und Versionsnummer
+GET {{restUrl}}/00000000-0000-0000-0000-000000000001
+If-None-Match: "0"
+
+### Suche mit vorhandener Videospiel-ID und falscher Versionsnummer
+GET {{restUrl}}/00000000-0000-0000-0000-000000000001
+If-None-Match: 0
+
+### Suche mit ungueltiger Videospiel-ID
+GET {{restUrl}}/YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY
+
+### Suche mit nicht-vorhandener Videospiel-ID
+GET {{restUrl}}/99999999-9999-9999-9999-999999999999
+
+### Suche mit vorhandenem Titel
+GET {{restUrl}}?titel=a
+
+### Suche mit nicht-vorhandenem Titel
+GET {{restUrl}}?titel=xxx
+
+### Suche mit vorhandenen Schlagwoertern
+GET {{restUrl}}?Shooter=true&Rollenspiel=true
+
+### Suche mit vorhandenem Schlagwort "Shooter"
+GET {{restUrl}}?Shooter=true
+
+### Suche mit nicht-vorhandener Property
+GET {{restUrl}}?php=true
+
+### Suche mit gueltiger Platform
+GET {{restUrl}}?platform=Windows
+
+### Suche mit gueltigem Rating
+GET {{restUrl}}?rating=1
