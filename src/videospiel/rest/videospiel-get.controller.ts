@@ -17,15 +17,6 @@ import {
     ApiTags,
 } from '@nestjs/swagger';
 import {
-    type Platform,
-    type Publisher,
-    type Videospiel,
-} from '../entity/videospiel.entity.js';
-import {
-    type Suchkriterien,
-    VideospielReadService,
-} from '../service/videospiel-read.service.js';
-import {
     Controller,
     Get,
     Headers,
@@ -36,7 +27,16 @@ import {
     Res,
     UseInterceptors,
 } from '@nestjs/common';
+import {
+    type Platform,
+    type Publisher,
+    type Videospiel,
+} from '../entity/videospiel.entity.js';
 import { Request, Response } from 'express';
+import {
+    type Suchkriterien,
+    VideospielReadService,
+} from '../service/videospiel-read.service.js';
 import { ResponseTimeInterceptor } from '../../logger/response-time.interceptor.js';
 import { getBaseUri } from './getBaseUri.js';
 import { getLogger } from '../../logger/logger.js';
@@ -120,7 +120,7 @@ export class VideospielQuery implements Suchkriterien {
 }
 
 /**
- * Die Controller-Klasse für die Verwaltung von Bücher.
+ * Die Controller-Klasse für die Verwaltung von Videospielen.
  */
 // Decorator in TypeScript, zur Standardisierung in ES vorgeschlagen (stage 3)
 // https://github.com/tc39/proposal-decorators
@@ -230,15 +230,15 @@ export class VideospielGetController {
     }
 
     /**
-     * Bücher werden mit Query-Parametern asynchron gesucht. Falls es mindestens
+     * Videospielen werden mit Query-Parametern asynchron gesucht. Falls es mindestens
      * ein solches Videospiel gibt, wird der Statuscode `200` (`OK`) gesetzt. Im Rumpf
-     * des Response ist das JSON-Array mit den gefundenen Büchern, die jeweils
+     * des Response ist das JSON-Array mit den gefundenen Videospielen, die jeweils
      * um Atom-Links für HATEOAS ergänzt sind.
      *
      * Falls es kein Videospiel zu den Suchkriterien gibt, wird der Statuscode `404`
      * (`Not Found`) gesetzt.
      *
-     * Falls es keine Query-Parameter gibt, werden alle Bücher ermittelt.
+     * Falls es keine Query-Parameter gibt, werden alle Videospielen ermittelt.
      *
      * @param query Query-Parameter von Express.
      * @param req Request-Objekt von Express.
@@ -247,7 +247,7 @@ export class VideospielGetController {
      */
     @Get()
     @ApiOperation({ summary: 'Suche mit Suchkriterien', tags: ['Suchen'] })
-    @ApiOkResponse({ description: 'Eine evtl. leere Liste mit Büchern' })
+    @ApiOkResponse({ description: 'Eine evtl. leere Liste mit Videospielen' })
     async find(
         @Query() query: VideospielQuery,
         @Req() req: Request,
