@@ -55,7 +55,6 @@ export class QueryBuilder {
      * @param suchkriterien JSON-Objekt mit Suchkriterien
      * @returns QueryBuilder
      */
-    // eslint-disable-next-line max-lines-per-function
     build(suchkriterien: Record<string, any>) {
         this.#logger.debug('build: suchkriterien=%o', suchkriterien);
 
@@ -72,12 +71,12 @@ export class QueryBuilder {
         // z.B. { titel: 'a', rating: 5, javascript: true }
         // Rest Properties fuer anfaengliche WHERE-Klausel
         // type-coverage:ignore-next-line
-        const { titel, isbn, javascript, typescript, ...props } = suchkriterien;
+        const { titel, shooter, rollenspiel, ...props } = suchkriterien;
 
         queryBuilder = this.#buildSchlagwoerter(
             queryBuilder,
-            javascript, // eslint-disable-line @typescript-eslint/no-unsafe-argument
-            typescript, // eslint-disable-line @typescript-eslint/no-unsafe-argument
+            shooter, // eslint-disable-line @typescript-eslint/no-unsafe-argument
+            rollenspiel, // eslint-disable-line @typescript-eslint/no-unsafe-argument
         );
 
         let useWhere = true;
@@ -93,25 +92,6 @@ export class QueryBuilder {
                 { titel: `%${titel}%` },
             );
             useWhere = false;
-        }
-
-        // type-coverage:ignore-next-line
-        if (isbn !== undefined && typeof isbn === 'string') {
-            // "-" aus ISBN-Nummer entfernen, da diese nicht abgespeichert sind
-            const isbnOhne = isbn.replaceAll('-', '');
-            const param = {
-                isbn: isbnOhne,
-            };
-            queryBuilder = useWhere
-                ? queryBuilder.where(
-                      `${this.#videospielAlias}
-                      .isbn = :isbn`,
-                      param,
-                  )
-                : queryBuilder.andWhere(
-                      `${this.#videospielAlias}.isbn = :isbn`,
-                      param,
-                  );
         }
 
         // Restliche Properties als Key-Value-Paare: Vergleiche auf Gleichheit
@@ -135,27 +115,27 @@ export class QueryBuilder {
 
     #buildSchlagwoerter(
         queryBuilder: SelectQueryBuilder<Videospiel>,
-        javascript: string | undefined,
-        typescript: string | undefined,
+        shooter: string | undefined,
+        rollenspiel: string | undefined,
     ) {
         // Schlagwort JAVASCRIPT aus der 2. Tabelle
-        if (javascript === 'true') {
+        if (shooter === 'true') {
             // https://typeorm.io/select-query-builder#inner-and-left-joins
             // eslint-disable-next-line no-param-reassign
             queryBuilder = queryBuilder.innerJoinAndSelect(
                 `${this.#videospielAlias}.schlagwoerter`,
                 'swJS',
-                'swJS.schlagwort = :javascript',
-                { javascript: 'JAVASCRIPT' },
+                'swJS.schlagwort = :shooter',
+                { shooter: 'SHOOTER' },
             );
         }
-        if (typescript === 'true') {
+        if (rollenspiel === 'true') {
             // eslint-disable-next-line no-param-reassign
             queryBuilder = queryBuilder.innerJoinAndSelect(
                 `${this.#videospielAlias}.schlagwoerter`,
                 'swTS',
-                'swTS.schlagwort = :typescript',
-                { typescript: 'TYPESCRIPT' },
+                'swTS.schlagwort = :rollenspiel',
+                { rollenspiel: 'ROLLENSPIEL' },
             );
         }
         return queryBuilder;
