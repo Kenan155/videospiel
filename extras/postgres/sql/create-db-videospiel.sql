@@ -27,12 +27,12 @@
 -- (11) exit
 
 -- https://www.postgresql.org/docs/current/sql-createrole.html
-CREATE ROLE buch LOGIN PASSWORD 'p';
+CREATE ROLE videospiel LOGIN PASSWORD 'p';
 
 -- https://www.postgresql.org/docs/current/sql-createdatabase.html
-CREATE DATABASE buch;
+CREATE DATABASE videospiel;
 
-GRANT ALL ON DATABASE buch TO buch;
+GRANT ALL ON DATABASE videospiel TO videospiel;
 
 -- https://www.postgresql.org/docs/10/sql-createtablespace.html
-CREATE TABLESPACE buchspace OWNER buch LOCATION '/var/lib/postgresql/tablespace/buch';
+CREATE TABLESPACE videospielspace OWNER videospiel LOCATION '/var/lib/postgresql/tablespace/videospiel';
