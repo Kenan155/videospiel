@@ -25,8 +25,8 @@ export interface Suchkriterien {
     readonly datum?: string;
     readonly speicherplatz?: number;
     readonly homepage?: string;
-    readonly javascript?: boolean;
-    readonly typescript?: boolean;
+    readonly shooter?: boolean;
+    readonly rollenspiel?: boolean;
 }
 
 /**
@@ -142,8 +142,8 @@ export class VideospielReadService {
         keys.forEach((key) => {
             if (
                 !this.#videospielProps.includes(key) &&
-                key !== 'javascript' &&
-                key !== 'typescript'
+                key !== 'shooter' &&
+                key !== 'rollenspiel'
             ) {
                 this.#logger.debug(
                     '#find: ungueltiges Suchkriterium "%s"',
