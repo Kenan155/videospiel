@@ -7,7 +7,7 @@
 -- "user-private schema" (Default-Schema: public)
 CREATE SCHEMA IF NOT EXISTS AUTHORIZATION videospiel;
 
-ALTER ROLE videospiel SET search_path = 'videopsiel';
+ALTER ROLE videospiel SET search_path = 'videospiel';
 
 -- https://www.postgresql.org/docs/current/sql-createtable.html
 -- https://www.postgresql.org/docs/current/datatype.html
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS videospiel (
     rabatt        decimal(4,3) NOT NULL,
                   -- https://www.postgresql.org/docs/current/datatype-datetime.html
     datum         date,
-    speicherplatz decimal(4,3) NOT NULL,
+    speicherplatz decimal(5,1) NOT NULL,
     homepage      varchar(40),
                   -- https://www.postgresql.org/docs/current/datatype-datetime.html
     erzeugt       timestamp NOT NULL DEFAULT NOW(),
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS videospiel (
 
 CREATE TABLE IF NOT EXISTS schlagwort (
     id            char(36) PRIMARY KEY USING INDEX TABLESPACE videospielspace,
-    videopsiel_id char(36) NOT NULL REFERENCES videospiel,
+    videospiel_id char(36) NOT NULL REFERENCES videospiel,
     schlagwort    varchar(16) NOT NULL
 ) TABLESPACE videospielspace;
 
