@@ -42,8 +42,8 @@ CREATE TABLE IF NOT EXISTS videospiel (
 ) TABLESPACE videospielspace;
 
 CREATE TABLE IF NOT EXISTS schlagwort (
-    id            char(36) PRIMARY KEY USING INDEX TABLESPACE viedoepsielspace,
-    videopsiel_id char(36) NOT NULL REFERENCES videopsiel,
+    id            char(36) PRIMARY KEY USING INDEX TABLESPACE videospielspace,
+    videopsiel_id char(36) NOT NULL REFERENCES videospiel,
     schlagwort    varchar(16) NOT NULL
 ) TABLESPACE videospielspace;
 
