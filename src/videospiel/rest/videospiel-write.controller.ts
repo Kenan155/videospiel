@@ -275,10 +275,6 @@ export class VideospielWriteController {
                 return this.#handleTitelExists(err.titel, res);
             }
 
-            case 'IsbnExists': {
-                return this.#handleIsbnExists(err.isbn, res);
-            }
-
             default: {
                 return res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
             }
@@ -299,18 +295,6 @@ export class VideospielWriteController {
     ): Response {
         const msg = `Der Titel "${titel}" existiert bereits.`;
         this.#logger.debug('#handleTitelExists(): msg=%s', msg);
-        return res
-            .status(HttpStatus.UNPROCESSABLE_ENTITY)
-            .set('Content-Type', 'text/plain')
-            .send(msg);
-    }
-
-    #handleIsbnExists(
-        isbn: string | null | undefined,
-        res: Response,
-    ): Response {
-        const msg = `Die ISBN-Nummer "${isbn}" existiert bereits.`;
-        this.#logger.debug('#handleIsbnExists(): msg=%s', msg);
         return res
             .status(HttpStatus.UNPROCESSABLE_ENTITY)
             .set('Content-Type', 'text/plain')

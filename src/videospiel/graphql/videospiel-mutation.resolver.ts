@@ -97,7 +97,7 @@ export class VideospielMutationResolver {
             version: undefined,
             titel: videospielDTO.titel,
             rating: videospielDTO.rating,
-            platfrom: videospielDTO.platform,
+            platform: videospielDTO.platform,
             publisher: videospielDTO.publisher,
             preis: videospielDTO.preis,
             rabatt: videospielDTO.rabatt,
