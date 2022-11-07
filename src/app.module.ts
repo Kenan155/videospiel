@@ -28,7 +28,7 @@ import { LoggerModule } from './logger/logger.module.js';
 import { RequestLoggerMiddleware } from './logger/request-logger.middleware.js';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { VideospielGetController } from './videospiel/rest/videospiel-get.controller.js';
-import { VideospielModule } from './videospiel/vieospiel.module.js';
+import { VideospielModule } from './videospiel/videospiel.module.js';
 import { VideospielWriteController } from './videospiel/rest/videospiel-write.controller.js';
 import { graphQlConfig } from './config/graphql.js';
 import { typeOrmModuleOptions } from './config/db.js';
