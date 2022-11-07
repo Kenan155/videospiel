@@ -7,7 +7,7 @@
 -- "user-private schema" (Default-Schema: public)
 CREATE SCHEMA IF NOT EXISTS AUTHORIZATION videospiel;
 
-ALTER ROLE videospiel SET search_path = 'videopsiel';
+ALTER ROLE videospiel SET search_path = 'videospiel';
 
 -- https://www.postgresql.org/docs/current/sql-createtable.html
 -- https://www.postgresql.org/docs/current/datatype.html
