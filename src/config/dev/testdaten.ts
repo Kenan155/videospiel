@@ -132,32 +132,32 @@ export const schlagwoerter: Schlagwort[] = [
     {
         id: '00000000-0000-0000-0000-010000000001',
         videospiel: videospiele[0],
-        schlagwort: 'Shooter',
+        schlagwort: 'SHOOTER',
     },
     {
         id: '00000000-0000-0000-0000-020000000001',
         videospiel: videospiele[1],
-        schlagwort: 'Simulation',
+        schlagwort: 'SHOOTER',
     },
     {
         id: '00000000-0000-0000-0000-030000000001',
         videospiel: videospiele[2],
-        schlagwort: 'FPS',
+        schlagwort: 'SHOOTER',
     },
     {
         id: '00000000-0000-0000-0000-030000000002',
         videospiel: videospiele[3],
-        schlagwort: 'Mobile',
+        schlagwort: 'ROLLENSPIEL',
     },
     {
         id: '00000000-0000-0000-0000-500000000001',
         videospiel: videospiele[4],
-        schlagwort: 'Rollenspiel',
+        schlagwort: 'ROLLENSPIEL',
     },
     {
         id: '00000000-0000-0000-0000-600000000001',
         videospiel: videospiele[5],
-        schlagwort: 'Open World',
+        schlagwort: 'ROLLENSPIEL',
     },
 ];
 
