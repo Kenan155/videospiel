@@ -26,12 +26,12 @@ CREATE TABLE IF NOT EXISTS videospiel (
                   -- https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-CHECK-CONSTRAINTS
     rating        integer NOT NULL CHECK (rating >= 0 AND rating <= 5),
                   -- https://www.postgresql.org/docs/current/functions-matching.html#FUNCTIONS-POSIX-REGEXP
-    platform      varchar(12) NOT NULL CHECK (platform ~ 'ANDROID|IOS|WINDOWS'),
-    publisher     varchar(12) NOT NULL CHECK (publisher ~ 'ACTIVISION|BETHESDA|EA'),
+    platform      varchar(12) NOT NULL CHECK (platform ~ 'Android|IOS|Windows'),
+    publisher     varchar(12) NOT NULL CHECK (publisher ~ 'Activision|Bethesda|EA'),
                   -- https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-NUMERIC-DECIMAL
                   -- 10 Stellen, davon 2 Nachkommastellen
     preis         decimal(8,2) NOT NULL,
-    rabatt        decimal(4,3) NOT NULL,
+    rabatt        decimal(5,3) NOT NULL,
                   -- https://www.postgresql.org/docs/current/datatype-datetime.html
     datum         date,
     speicherplatz decimal(5,1) NOT NULL,
