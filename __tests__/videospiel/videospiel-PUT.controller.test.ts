@@ -159,8 +159,8 @@ describe('PUT /:id', () => {
             expect.arrayContaining([
                 'Ein Videospieltitel muss mit einem Buchstaben, einer Ziffer oder _ beginnen.',
                 `Eine Bewertung muss zwischen 0 und ${MAX_RATING} liegen.`,
-                'Die Platform eines Videospiels muss Windows oder IOS sein.', //welche Platformen gibt es noch
-                'Der Publisher eines Videospiels muss EA oder sein.', //welche Publisher gibt es noch
+                'Die Platform eines Videospiels muss Windows, Android oder IOS sein.',
+                'Der Publisher eines Videospiels muss EA, Activision oder Bethesda sein.',
                 'Der Rabatt muss ein Wert zwischen 0 und 1 sein.',
                 'Das Datum muss im Format yyyy-MM-dd sein.',
                 'Die Speicherplatz ist nicht ausreichend.',
