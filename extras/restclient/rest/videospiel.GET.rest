@@ -23,16 +23,16 @@ GET {{restUrl}}/YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY
 GET {{restUrl}}/99999999-9999-9999-9999-999999999999
 
 ### Suche mit vorhandenem Titel
-GET {{restUrl}}?titel=a
+GET {{restUrl}}?titel=Battlefield
 
 ### Suche mit nicht-vorhandenem Titel
 GET {{restUrl}}?titel=xxx
 
 ### Suche mit vorhandenen Schlagwoertern
-GET {{restUrl}}?Shooter=true&Rollenspiel=true
+GET {{restUrl}}?shooter=false&rollenspiel=true
 
 ### Suche mit vorhandenem Schlagwort "Shooter"
-GET {{restUrl}}?Shooter=true
+GET {{restUrl}}?shooter=true
 
 ### Suche mit nicht-vorhandener Property
 GET {{restUrl}}?php=true
