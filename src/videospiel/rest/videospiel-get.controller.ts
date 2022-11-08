@@ -113,10 +113,10 @@ export class VideospielQuery implements Suchkriterien {
     declare readonly homepage: string;
 
     @ApiProperty({ required: false })
-    declare readonly javascript: boolean;
+    declare readonly shooter: boolean;
 
     @ApiProperty({ required: false })
-    declare readonly typescript: boolean;
+    declare readonly rollenspiel: boolean;
 }
 
 /**
