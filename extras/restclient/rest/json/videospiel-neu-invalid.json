@@ -5,8 +5,8 @@
   "publisher": "NO_PUBLISHER",
   "preis": -1,
   "rabatt": 0,
-  "lieferbar": true,
   "datum": "12345-123-123",
   "speicherplatz": 56.7,
-  "homepage": "anyHomepage"
+  "homepage": "anyHomepage",
+  "schlagwoerter": ["Platformer", "Fussballsimulator"]
 }
