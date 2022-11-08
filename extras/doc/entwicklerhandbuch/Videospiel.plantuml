@@ -1,0 +1,64 @@
+' Preview durch <Alt>d
+
+@startuml Entity
+
+package typeorm {
+  class "@Entity" as Entity
+  hide Entity circle
+  class "@Column" as Column
+  hide Column circle
+  class "@PrimaryColumn" as PrimaryColumn
+  hide PrimaryColumn circle
+  class "@OneToMany" as OneToMany
+  hide OneToMany circle
+  class "@JoinColumn" as JoinColumn
+  hide JoinColumn circle
+  class "@ManyToOne" as ManyToOne
+  hide ManyToOne circle
+  class "@CreateDateColumn" as CreateDateColumn
+  hide CreateDateColumn circle
+  class "@UpdateDateColumn" as UpdateDateColumn
+  hide UpdateDateColumn circle
+}
+
+package videospiel.entity {
+  class "type Platform = 'Windows' | 'Android' | 'IOS'" as Platform
+  hide Platform circle
+
+  class "type Publisher = 'Activision' | 'Bethesda' | 'EA'" as Publisher
+  hide Publisher circle
+
+  class Videospiel <<entity>> <<@Entity>> {
+    @Column() @PrimaryColumn() readonly id: string
+    @Column() readonly titel: string
+    @Column() readonly rating: number
+    @Column() readonly platform: Platform
+    @Column() readonly publisher: Publisher
+    @Column() readonly preis: number
+    @Column() readonly rabatt: number
+    @Column() readonly datum: Date
+    @Column() readonly speicherplatz: number
+    @Column() readonly homepage?: string
+    @CreateDateColumn() readonly erzeugt: Date
+    @UpdateDateColumn() readonly aktualisiert: Date
+  }
+
+  class Schlagwort <<entity>> <<@Entity>> {
+    @Column() @PrimaryColumn() readonly id: string
+    @Column() readonly schlagwort: string
+    @ManyToOne() readonly videospiel: Videospiel
+  }
+
+  Videospiel ..> Entity
+  Videospiel *--> "*" Schlagwort : @OneToMany() schlagwoerter
+  Videospiel .up.> Platform
+  Videospiel .up.> Verlag
+
+  Platform .[hidden].> Publisher
+}
+
+hide empty members
+
+footer (c) Alexander Würtenberger, Anton Schlechter, Pascal Purrucker, Kenan Dilmen
+
+@enduml

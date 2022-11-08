@@ -1,0 +1,22 @@
+' Preview durch <Alt>d
+
+@startuml Use Cases
+
+actor Gast
+actor Admin
+actor Kunde
+
+rectangle videospiel {
+    Gast --> (Videospiel suchen)
+    Admin --> (Videospiel suchen)
+    Admin --> (Videospiel anlegen)
+    Admin --> (Videospiel ändern)
+    Admin --> (Videospiel löschen)
+    Kunde --> (Videospiel suchen)
+    Kunde --> (Videospiel anlegen)
+    Kunde --> (Videospiel ändern)
+}
+
+footer (c) Jürgen Zimmermann
+
+@enduml

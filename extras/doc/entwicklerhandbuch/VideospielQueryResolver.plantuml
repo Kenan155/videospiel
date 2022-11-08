@@ -1,0 +1,60 @@
+' Preview durch <Alt>d
+
+@startuml Controller-Klasse
+
+interface Promise<T>
+
+package @nestjs/graphql {
+  class "@Resolver" as Resolver
+  hide Resolver circle
+
+  class "@UseInterceptors" as UseInterceptors
+  hide UseInterceptors circle
+
+  class "@Query" as Query
+  hide Query circle
+
+  class "@Args" as Args
+  hide Args circle
+
+  Resolver .left[hidden].> Promise
+}
+
+package videospiel {
+  package entity {
+    class Videospiel <<entity>>
+  }
+
+  package service {
+    class VideospielReadService << control >>
+  }
+
+  package graphql #DDDDDD {
+    class "type VideospielDTO = Omit<Videospiel, 'aktualisiert' | 'erzeugt' | 'schlagwoerter'> & { schlagwoerter: string[] }" as VideospielDTO
+    hide VideospielDTO circle
+
+    class VideospielQueryResolver << control >> << @Resolver() >> << @UseInterceptors() >> {
+      + @Query() async findById(@Args() id: string): Promise<VideospielDTO>
+      + @Query() async find(@Args() titel: string |undefined): Promise<VideospielDTO[]>
+    }
+
+    VideospielQueryResolver o-up-> "1" VideospielReadService : service
+    VideospielQueryResolver ..> VideospielDTO
+    VideospielDTO ..> Videospiel
+    VideospielQueryResolver ..> Resolver
+
+    VideospielQueryResolver ..> Promise
+
+    VideospielDTO .[hidden].> Videospiel
+    Videospiel .[hidden].> Promise
+    VideospielReadService .[hidden].> Promise
+    Videospiel .[hidden].> Resolver
+    VideospielReadService .[hidden].> Resolver
+  }
+}
+
+hide empty members
+
+footer (c) Juergen Zimmermann
+
+@enduml

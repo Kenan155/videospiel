@@ -1,0 +1,73 @@
+' Preview durch <Alt>d
+
+@startuml Anwendungskern
+
+interface Promise<T>
+
+package @nestjs/common {
+  class "@Injectable" as Injectable
+  hide Injectable circle
+}
+
+package typeorm {
+  class Repository<T>
+}
+
+package @nestjs/typeorm {
+  class "@InjectRepository" as InjectRepository
+  hide InjectRepository circle
+}
+
+package mail {
+  class MailService
+}
+
+package videospiel {
+  package entity {
+    class Videospiel
+  }
+
+  package service #DDDDDD {
+    class VideospielInvalid
+    class TitelExists
+    class IsbnExists
+    class VersionInvalid
+    class VersionOutdated
+
+    class VideospielWriteService << control >> <<@Injectable()>> {
+      + async create(videospiel: Videospiel): Promise<string|VideospielInvalid|TitelExists|IsbnExists>
+      + async update(id: string, videospiel: Videospiel, version: string): Promise<number|VideospielInvalid|TitelExists|IsbnExists|VersionInvalid|VersionOutdated>
+      + async delete(id: string): Promise<boolean>
+    }
+
+    VideospielWriteService o--> "1" VideospielValidationService: validationService
+    VideospielWriteService o--> "1" VideospielReadService: readService
+    VideospielWriteService o--> "1" Repository: @InjectRepository repo
+    VideospielWriteService o--> "1" MailService: mailService
+
+    VideospielWriteService .up.> Injectable
+    VideospielWriteService .up.> InjectRepository
+
+    VideospielWriteService .up.> Promise
+    VideospielWriteService ..> Videospiel
+    VideospielWriteService .up.> VideospielInvalid
+    VideospielWriteService .up.> TitelExists
+    VideospielWriteService .up.> IsbnExists
+    VideospielWriteService .up.> VersionInvalid
+    VideospielWriteService .up.> VersionOutdated
+
+    VideospielInvalid .up[hidden].> Videospiel
+    Videospiel .up[hidden].> Promise
+    Videospiel .up[hidden].> Injectable
+    Videospiel .up[hidden].> InjectRepository
+    TitelExists .up[hidden].> Videospiel
+    VideospielValidationService .[hidden].> Repository
+    VideospielValidationService .[hidden].> MailService
+  }
+}
+
+hide empty members
+
+footer (c) Jürgen Zimmermann
+
+@enduml

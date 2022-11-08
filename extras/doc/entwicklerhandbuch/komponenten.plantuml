@@ -1,0 +1,61 @@
+' Preview durch <Alt>d
+
+@startuml Komponenten
+
+left to right direction
+
+actor RESTClient
+actor GraphQLClient
+
+node "Nest" {
+  [RequestLoggerMiddleware]
+
+  [VideospielController]
+  [VideospielResolver]
+
+  [VideospielService]
+
+  [Repository<Videospiel>]
+
+  [MailService]
+}
+
+
+cloud {
+    [TypeORM]
+}
+
+cloud {
+    [nodemailer]
+}
+
+database "DB videospiel" {
+    [Tabelle videospiel]
+    [Tabelle schlagwort]
+}
+
+node {
+    [Mailserver]
+}
+
+RESTClient ~~> [RequestLoggerMiddleware]
+GraphQLClient ~~> [RequestLoggerMiddleware]
+
+[RequestLoggerMiddleware] ~~> [VideospielController]
+[RequestLoggerMiddleware] ~~> [VideospielResolver]
+
+[VideospielController] ..> [VideospielService]
+[VideospielResolver] ..> [VideospielService]
+[VideospielService] ..> [Repository<Videospiel>]
+
+[Repository<Videospiel>] ~~> [TypeORM]
+[TypeORM] ~~> [Tabelle videospiel]
+[TypeORM] ~~> [Tabelle schlagwort]
+
+[VideospielService] ..> [MailService]
+[MailService] ~~> [nodemailer]
+[nodemailer] ~~> [Mailserver]
+
+footer (c) Jürgen Zimmermann
+
+@enduml

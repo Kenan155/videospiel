@@ -1,0 +1,112 @@
+' Preview durch <Alt>d
+
+@startuml Controller-Klasse
+
+interface Promise<T>
+
+package @nestjs/common {
+  class "@Controller" as Controller
+  hide Controller circle
+
+  class "@UseGuards" as UseGuards
+  hide UseGuards circle
+
+  class "@UseInterceptors" as UseInterceptors
+  hide UseInterceptors circle
+
+  class "@Post" as Post
+  hide Post circle
+
+  class "@Put" as Put
+  hide Put circle
+
+  class "@Delete" as Delete
+  hide Delete circle
+
+  class "@Req" as Req
+  hide Req circle
+
+  class "@Res" as Res
+  hide Res circle
+
+  class "@Param" as Param
+  hide Param circle
+
+  class "@Body" as Body
+  hide Body circle
+
+  class "@Headers" as Headers
+  hide Headers circle
+
+  UseInterceptors .[hidden].> Post
+  UseInterceptors .[hidden].> Put
+  UseInterceptors .[hidden].> Delete
+
+  Post .[hidden].> Req
+  Post .[hidden].> Res
+  Post .[hidden].> Param
+  Post .[hidden].> Body
+  Post .[hidden].> Headers
+}
+
+package express {
+  class Request
+  class Response
+
+  Response .right[hidden].> Controller
+}
+
+package security.auth {
+  class "type Role = 'ADMIN' | 'MITARBEITER' | 'KUNDE'" as Role
+  hide Role circle
+
+  class "@Roles" as Roles
+  hide Roles circle
+
+  Roles .right.> Role
+}
+
+package videospiel {
+  package entity #FFFFFF {
+    class Videospiel <<entity>>
+
+    Videospiel .[hidden].> Promise
+    Videospiel .[hidden].> Request
+  }
+
+  package service {
+    class VideospielWriteService << control >>
+    class VideospielReadService << control >>
+  }
+
+  package rest #DDDDDD {
+    class VideospielWriteController << control >> << @Controller() >> << @UseGuards() >> << @UseInterceptors() >> {
+      + @Post() @Roles() async create(@Body() videospiel: Videospiel, @Req() req: Request,  @Res() res: Response): Promise<Response>
+      + @Put() @Roles() async update(@Body() videospiel: Videospiel, @Param() id: string, @Headers() version: string, @Res() res: Response): Promise<Response>
+      + @Delete() @Roles() async delete(@Param() id: string, @Res() res: Response): Promise<Response>
+    }
+
+    VideospielWriteController o--> "1" VideospielWriteService : service
+    VideospielWriteController o--> "1" VideospielReadService : readService
+    VideospielWriteController ..up> Videospiel
+
+    VideospielWriteController ..> Controller
+
+    VideospielWriteController .up.> Roles
+    VideospielWriteController .up.> Role
+
+    VideospielWriteController ..> Request
+    VideospielWriteController ..> Response
+    VideospielWriteController ..> Promise
+
+    Videospiel .up[hidden].> Roles
+    VideospielWriteService .[hidden].> Request
+    VideospielWriteService .[hidden].> Promise
+  }
+}
+
+hide empty members
+
+footer (c) Juergen Zimmermann
+
+@enduml

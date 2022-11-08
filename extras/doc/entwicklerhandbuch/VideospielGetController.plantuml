@@ -1,0 +1,76 @@
+' Preview durch <Alt>d
+
+@startuml Controller-Klasse
+
+interface Promise<T>
+
+package @nestjs/common {
+  class "@Controller" as Controller
+  hide Controller circle
+
+  class "@Get" as Get
+  hide Get circle
+
+  class "@Req" as Req
+  hide Req circle
+
+  class "@Res" as Res
+  hide Res circle
+
+  class "@Param" as Param
+  hide Param circle
+
+  class "@Query" as Query
+  hide Query circle
+
+  class "@UseInterceptors" as UseInterceptors
+  hide UseInterceptors circle
+}
+
+package express {
+  class Request
+  class Response
+
+  Response .[hidden].> Controller
+}
+
+package videospiel {
+  package entity #FFFFFF {
+    class Videospiel <<entity>>
+
+    Videospiel .[hidden].> Promise
+    Videospiel .[hidden].> Request
+  }
+
+  package service {
+    class VideospielReadService << control >>
+  }
+
+  package rest #DDDDDD {
+    VideospielQuery -up-|> Videospiel
+
+    class VideospielGetController << control >> << @Controller() >> << @UseGuards() >> << @UseInterceptors() >> {
+      + @Get() async findById(@Param() id: string, @Req() req: Request, @Headers() version: string, @Res() res: Response): Promise<Response<VideospielModel | undefined>>
+      + @Get() async find(@Query() query: VideospielQuery, @Req() req: Request,  @Res() res: Response): Promise<Response<VideospieleModel | undefined>>
+    }
+
+    VideospielGetController o--> "1" VideospielReadService : service
+
+    VideospielGetController ..> Controller
+    VideospielGetController ..> Request
+    VideospielGetController ..> Response
+    VideospielGetController ..> Promise
+    VideospielGetController .up.> VideospielModel
+    VideospielGetController .up.> VideospielQuery
+
+    VideospielReadService .[hidden].> Request
+    VideospielReadService .[hidden].> Promise
+    Response .right[hidden].> Controller
+  }
+}
+
+hide empty members
+
+footer (c) Alexander Würtenberger, Anton Schlechter, Pascal Purrucker, Kenan Dilmen
+
+@enduml
