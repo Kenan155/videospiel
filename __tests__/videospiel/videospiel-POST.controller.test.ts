@@ -133,8 +133,8 @@ describe('POST /', () => {
             expect.arrayContaining([
                 'Ein Videospieltitel muss mit einem Buchstaben, einer Ziffer oder _ beginnen.',
                 `Eine Bewertung muss zwischen 0 und ${MAX_RATING} liegen.`,
-                'Die Platform eines Videospiels muss Windows,  IOS oder  sein.', //was gibt es noch für Plattformen?
-                'Der Publisher eines Videospiels muss EA oder sein.', //hier das selbe
+                'Die Platform eines Videospiels muss Windows, IOS oder Android sein.',
+                'Der Publisher eines Videospiels muss EA, Activision oder Bethesda sein.',
                 'Der Rabatt muss ein Wert zwischen 0 und 1 sein.',
                 'Das Datum muss im Format yyyy-MM-dd sein.',
                 'Der Speicherplatz ist nicht ausreichend.',
