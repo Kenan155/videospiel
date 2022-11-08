@@ -52,7 +52,6 @@ const geaendertesVideospielInvalid: Record<string, unknown> = {
     speicherplatz: 26.8,
 };
 
-// isbn wird nicht geaendet
 const veraltesVideospiel: VideospielUpdateDTO = {
     titel: 'Veraltet',
     rating: 1,
