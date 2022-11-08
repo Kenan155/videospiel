@@ -39,16 +39,16 @@ type Videospiel {
 
 "Enum-Typ für den Platform eines Videospiels"
 enum Platform {
-  WINDOWS
+  Windows
   IOS
-  ANDROID
+  Android
 }
 
 "Enum-Typ für den Publisher eines Videospiels"
 enum Publisher {
   EA
-  ACTIVISION
-  BETHESDA
+  Activision
+  Bethesda
 }
 
 "Daten für ein neues Videospiel"
