@@ -101,13 +101,10 @@ export class VideospielQuery implements Suchkriterien {
     declare readonly rabatt: number;
 
     @ApiProperty({ required: false })
-    declare readonly lieferbar: boolean;
-
-    @ApiProperty({ required: false })
     declare readonly datum: string;
 
     @ApiProperty({ required: false })
-    declare readonly isbn: string;
+    declare readonly speicherplatz: number;
 
     @ApiProperty({ required: false })
     declare readonly homepage: string;

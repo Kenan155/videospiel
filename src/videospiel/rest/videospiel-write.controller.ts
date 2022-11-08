@@ -79,8 +79,8 @@ export class VideospielWriteController {
      * dass damit das neu angelegte Videospiel abgerufen werden kann.
      *
      * Falls Constraints verletzt sind, wird der Statuscode `400` (`Bad Request`)
-     * gesetzt und genauso auch wenn der Titel oder die ISBN-Nummer bereits
-     * existieren.
+     * gesetzt und genauso auch wenn der Titel bereits
+     * existiert.
      *
      * @param videospiel JSON-Daten für ein Videospiel im Request-Body.
      * @param res Leeres Response-Objekt von Express.
@@ -127,7 +127,7 @@ export class VideospielWriteController {
      * required`) gesetzt; und falls sie nicht korrekt ist, der Statuscode `412`
      * (`Precondition failed`). Falls Constraints verletzt sind, wird der
      * Statuscode `400` (`Bad Request`) gesetzt und genauso auch wenn der neue
-     * Titel oder die neue ISBN-Nummer bereits existieren.
+     * Titel bereits existiert.
      *
      * @param videospiel Videospieldaten im Body des Request-Objekts.
      * @param id Pfad-Paramater für die ID.

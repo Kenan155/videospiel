@@ -62,7 +62,7 @@ export const jsonSchema: GenericJsonSchema = {
     errorMessage: {
         properties: {
             version: 'Die Versionsnummer muss mindestens 0 sein.',
-            titel: 'Ein Buchtitel muss mit einem Buchstaben, einer Ziffer oder _ beginnen.',
+            titel: 'Ein Videospieltitel muss mit einem Buchstaben, einer Ziffer oder _ beginnen.',
             rating: 'Eine Bewertung muss zwischen 0 und 5 liegen.',
             platform:
                 'Die Platform eines Videospiels muss Windows, Android oder IOS sein.',
