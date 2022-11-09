@@ -67,7 +67,7 @@ export const jsonSchema: GenericJsonSchema = {
             platform:
                 'Die Platform eines Videospiels muss Windows, Android oder IOS sein.',
             publisher:
-                'Der Verlag eines Videospiels muss Activision, Bethesda oder EA sein.',
+                'Der Publisher eines Videospiels muss Activision, Bethesda oder EA sein.',
             preis: 'Der Preis darf nicht negativ sein.',
             rabatt: 'Der Rabatt muss ein Wert zwischen 0 und 1 sein.',
             datum: 'Das Datum muss im Format yyyy-MM-dd sein.',

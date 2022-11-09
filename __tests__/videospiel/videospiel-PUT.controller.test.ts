@@ -49,7 +49,7 @@ const geaendertesVideospielInvalid: Record<string, unknown> = {
     preis: 0.01,
     rabatt: 2,
     datum: '12345-123-123',
-    speicherplatz: 26.8,
+    speicherplatz: -26.8,
 };
 
 const veraltesVideospiel: VideospielUpdateDTO = {
@@ -159,10 +159,10 @@ describe('PUT /:id', () => {
                 'Ein Videospieltitel muss mit einem Buchstaben, einer Ziffer oder _ beginnen.',
                 `Eine Bewertung muss zwischen 0 und ${MAX_RATING} liegen.`,
                 'Die Platform eines Videospiels muss Windows, Android oder IOS sein.',
-                'Der Publisher eines Videospiels muss EA, Activision oder Bethesda sein.',
+                'Der Publisher eines Videospiels muss Activision, Bethesda oder EA sein.',
                 'Der Rabatt muss ein Wert zwischen 0 und 1 sein.',
                 'Das Datum muss im Format yyyy-MM-dd sein.',
-                'Die Speicherplatz ist nicht ausreichend.',
+                'Der Speicherplatz darf nicht negativ sein.',
             ]),
         );
     });

@@ -23,9 +23,9 @@ const idVorhanden = [
     '00000000-0000-0000-0000-000000000003',
 ];
 
-const titelVorhanden = ['Alpha', 'Beta', 'Gamma'];
+const titelVorhanden = ['Skyrim', 'Sims 4', 'Battlefield 3'];
 
-const teilTitelVorhanden = ['a', 't', 'g'];
+const teilTitelVorhanden = ['a', 't', 'y'];
 
 const teilTitelNichtVorhanden = ['Xyz', 'abc'];
 
