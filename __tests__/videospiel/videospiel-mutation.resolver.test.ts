@@ -257,7 +257,7 @@ describe('GraphQL Mutations', () => {
             ),
         );
         expect(message).toEqual(
-            expect.stringContaining('Die ISBN-Nummer ist nicht korrekt.'),
+            expect.stringContaining('Der Speicherplatz reicht nicht aus.'),
         );
         expect(message).toEqual(
             expect.stringContaining('Die Homepage ist nicht korrekt.'),
