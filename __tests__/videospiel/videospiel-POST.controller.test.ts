@@ -36,10 +36,11 @@ const neuesVideospielInvalid: Record<string, unknown> = {
     preis: 0,
     rabatt: 2,
     datum: '12345123123',
+    speicherplatz: -22,
     schlagwoerter: [],
 };
 const neuesVideospielTitelExistiert: VideospielDTO = {
-    titel: 'Alpha',
+    titel: 'Sims 4',
     rating: 1,
     platform: 'Windows',
     publisher: 'EA',
@@ -133,11 +134,11 @@ describe('POST /', () => {
             expect.arrayContaining([
                 'Ein Videospieltitel muss mit einem Buchstaben, einer Ziffer oder _ beginnen.',
                 `Eine Bewertung muss zwischen 0 und ${MAX_RATING} liegen.`,
-                'Die Platform eines Videospiels muss Windows, IOS oder Android sein.',
-                'Der Publisher eines Videospiels muss EA, Activision oder Bethesda sein.',
+                'Die Platform eines Videospiels muss Windows, Android oder IOS sein.',
+                'Der Publisher eines Videospiels muss Activision, Bethesda oder EA sein.',
                 'Der Rabatt muss ein Wert zwischen 0 und 1 sein.',
                 'Das Datum muss im Format yyyy-MM-dd sein.',
-                'Der Speicherplatz ist nicht ausreichend.',
+                'Der Speicherplatz darf nicht negativ sein.',
             ]),
         );
     });
