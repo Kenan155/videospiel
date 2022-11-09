@@ -61,7 +61,7 @@ export const videospiele: Videospiel[] = [
     // -------------------------------------------------------------------------
     {
         id: '00000000-0000-0000-0000-000000000040',
-        version: 0,
+        version: 1,
         titel: 'Call of Duty: Mobile',
         rating: 4,
         platform: 'IOS',
