@@ -1,5 +1,3 @@
-/* eslint-disable max-lines */
-
 /**
  * Das Modul besteht aus der Klasse {@linkcode VideospielWriteService} für die
  * Schreiboperationen im Anwendungskern.
@@ -180,7 +178,7 @@ export class VideospielWriteService {
         }
 
         const { titel } = videospiel;
-        let videospiele = await this.#readService.find({ titel: titel }); // eslint-disable-line object-shorthand
+        const videospiele = await this.#readService.find({ titel: titel }); // eslint-disable-line object-shorthand
         if (videospiele.length > 0) {
             return { type: 'TitelExists', titel };
         }
@@ -294,4 +292,3 @@ export class VideospielWriteService {
         return videospielDb;
     }
 }
-/* eslint-enable max-lines */
