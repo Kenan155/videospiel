@@ -97,7 +97,7 @@ describe('PUT /:id', () => {
         const url = `/${idVorhanden}`;
         const token = await loginRest(client);
         headers.Authorization = `Bearer ${token}`;
-        headers['If-Match'] = '"0"';
+        headers['If-Match'] = '"1"';
 
         // when
         const response: AxiosResponse<string> = await client.put(
