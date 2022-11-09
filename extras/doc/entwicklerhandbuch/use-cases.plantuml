@@ -17,6 +17,6 @@ rectangle videospiel {
     Kunde --> (Videospiel ändern)
 }
 
-footer (c) Jürgen Zimmermann
+footer (c) Alexander Würtenberger, Anton Schlechter, Pascal Purrucker, Kenan Dilmen
 
 @enduml
