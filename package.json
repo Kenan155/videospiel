@@ -2,7 +2,7 @@
   "name": "videospiel",
   "version": "1.0.0",
   "description": "Beispiel",
-  "author": "Kenan Dilmen,Alexander Wuertenberger,Anton Schlechter,Pascal Purrucker",
+  "author": "Kenan Dilmen, Alexander Wuertenberger, Anton Schlechter, Pascal Purrucker",
   "private": true,
   "license": "GPL-3.0",
   "exports": "./dist/src/main.js",
