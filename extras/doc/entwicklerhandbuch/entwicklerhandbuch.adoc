@@ -1,0 +1,115 @@
+// Preview durch <Strg><Shift>v
+
+= Entwickler/innen/handbuch
+:doctype: book
+:toc: left
+:sectanchors:
+:sectlinks:
+:sectnums:
+:source-highlighter: coderay
+:icons: font
+// :kroki-server-url: https://kroki.io
+
+// https://github.com/asciidoctor/asciidoctorj
+// https://github.com/asciidoctor/asciidoctor-diagram
+// http://de.plantuml.com/classes.html
+// http://de.plantuml.com/component.html
+// https://github.com/odrotbohm/asciidoctor-plantuml
+
+== Der Applikationsserver
+
+=== Der Applikationsserver im Überblick
+
+Ein in Typescript geschriebener Microserver auf Basis von Node 19.0.0.           
+
+.Use Cases
+[plantuml,use-cases,svg]
+----
+include::use-cases.plantuml[]
+----
+
+Verschiedene Use Cases für Administratoren, Mitarbeiter und Kunden.
+
+.Komponentendiagramm
+[plantuml,komponenten,svg]
+----
+include::komponenten.plantuml[]
+----
+
+=== Die REST-Schnittstelle
+
+Die Präsentationsschicht des Servers zum Steuern von Requests für Lesen und Schreiben.
+
+."VideospielGetController" für Lesezugriffe an der REST-Schnittstelle
+[plantuml,VideospielGetController,svg]
+----
+include::VideospielGetController.plantuml[]
+----
+
+Nimmt .
+
+."VideospielWriteController" für Schreibzugriffe an der REST-Schnittstelle
+[plantuml,VideospielGetController,svg]
+----
+include::VideospielWriteController.plantuml[]
+----
+
+=== Die GraphQL-Schnittstelle
+
+Donec sollicitudin molestie malesuada. Donec rutrum congue leo eget malesuada.
+
+.VideospielQueryResolver für Lesezugriffe an der GraphQL-Schnittstelle
+[plantuml,VideospielQueryResolver,svg]
+----
+include::VideospielQueryResolver.plantuml[]
+----
+
+Donec sollicitudin molestie malesuada. Praesent sapien massa, convallis a
+pellentesque nec, egestas non nisi.
+
+.VideospielMutationResolver für Schreibzugriffe an der GraphQL-Schnittstelle
+[plantuml,VideospielMutationResolver,svg]
+----
+include::VideospielMutationResolver.plantuml[]
+----
+
+=== Der Anwendungskern
+
+Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada.
+
+."VideospielReadService" im Anwendungskern
+[plantuml,VideospielReadService,svg]
+----
+include::VideospielReadService.plantuml[]
+----
+
+Pellentesque in ipsum id orci porta dapibus. Donec rutrum congue leo eget
+malesuada.
+
+."VideospielWriteService" im Anwendungskern
+[plantuml,VideospielWriteService,svg]
+----
+include::VideospielWriteService.plantuml[]
+----
+
+=== Klasse für Entities
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur arcu erat,
+accumsan id imperdiet et, porttitor at sem.
+
+.Entity
+[plantuml,Videospiel,svg]
+----
+include::Videospiel.plantuml[]
+----
+
+== Programmierrichtlinien für TypeScript und JavaScript
+
+Für die Programmierung mit *TypeScript* und *JavaScript* wird folgende
+Styleguides empfehlenswert:
+
+[horizontal]
+_Microsoft_:: https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines
+_Angular_:: https://angular.io/docs/ts/latest/guide/style-guide.html
+_Google_:: https://google.github.io/styleguide/tsguide.html
+_React_:: https://github.com/airbnb/javascript/tree/master/react
