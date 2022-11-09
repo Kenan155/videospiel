@@ -41,7 +41,7 @@ export class VideospielValidationService {
     }
 
     /**
-     * Funktion zur Validierung, wenn neue Bücher angelegt oder vorhandene Bücher
+     * Funktion zur Validierung, wenn neue Videospiele angelegt oder vorhandene Videospiele
      * aktualisiert bzw. überschrieben werden sollen.
      */
     validate(videospiel: Videospiel) {
