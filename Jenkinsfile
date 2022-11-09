@@ -60,7 +60,7 @@ pipeline {
 
                 // https://www.jenkins.io/doc/pipeline/steps/git
                 // "named arguments" statt Funktionsaufruf mit Klammern
-                git url: 'https://github.com/juergenzimmermann/buch', branch: 'main', poll: true
+                git url: 'https://github.com/Kenan155/videospiel', branch: 'main', poll: true
             }
         }
 
@@ -180,14 +180,14 @@ pipeline {
 
                 success {
                     script {
-                        if (fileExists("${env.WORKSPACE}/buch.zip")) {
-                            sh 'rm buch.zip'
+                        if (fileExists("${env.WORKSPACE}/videospiel.zip")) {
+                            sh 'rm videospiel.zip'
                         }
                     }
                     // https://www.jenkins.io/doc/pipeline/steps/pipeline-utility-steps/#zip-create-zip-file
-                    zip zipFile: 'buch.zip', archive: false, dir: 'dist'
-                    // jobs/buch/builds/.../archive/buch.zip
-                    archiveArtifacts 'buch.zip'
+                    zip zipFile: 'videospiel.zip', archive: false, dir: 'dist'
+                    // jobs/videospiel/builds/.../archive/videospiel.zip
+                    archiveArtifacts 'videospiel.zip'
                 }
             }
         }
@@ -196,7 +196,7 @@ pipeline {
             steps {
               echo 'TODO: Docker-Image bauen: dockerd starten, pack installieren'
               // Docker-Installation und laufender Docker-Daemon erforderlich
-              // sh 'docker build --tag juergenzimmermann/buch:1.0.0 .'
+              // sh 'docker build --tag juergenzimmermann/videospiel:1.0.0 .'
             }
         }
 

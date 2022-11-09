@@ -20,7 +20,7 @@
 
 === Der Applikationsserver im Überblick
 
-Ein in Typescript geschriebener Microserver auf Basis von Node 19.0.0.           
+Ein in Typescript geschriebener Microservice auf Basis von Node 19.0.0.           
 
 .Use Cases
 [plantuml,use-cases,svg]
