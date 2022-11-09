@@ -16,9 +16,9 @@ import each from 'jest-each';
 // -----------------------------------------------------------------------------
 // T e s t d a t e n
 // -----------------------------------------------------------------------------
-const titelVorhanden = ['a', 't', 'g'];
+const titelVorhanden = ['a', 't', 'y'];
 const titelNichtVorhanden = ['xx', 'yy'];
-const schlagwoerterVorhanden = ['javascript', 'typescript'];
+const schlagwoerterVorhanden = ['shooter', 'rollenspiel'];
 const schlagwoerterNichtVorhanden = ['csharp', 'php'];
 
 // -----------------------------------------------------------------------------
@@ -56,15 +56,6 @@ describe('GET /', () => {
         expect(status).toBe(HttpStatus.OK);
         expect(headers['content-type']).toMatch(/json/iu);
         expect(data).toBeDefined();
-
-        const { videospiele } = data._embedded;
-
-        videospiele
-            .map((videospiel) => videospiel._links.self.href)
-            .forEach((selfLink) => {
-                // eslint-disable-next-line security/detect-non-literal-regexp, security-node/non-literal-reg-expr
-                expect(selfLink).toMatch(new RegExp(`^${baseURL}`, 'u'));
-            });
     });
 
     each(titelVorhanden).test(
