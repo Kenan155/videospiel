@@ -20,7 +20,7 @@
 
 === Der Applikationsserver im Überblick
 
-Ein in Typescript geschriebener Microservice auf Basis von Node 19.0.0.           
+Verschiedene Use Cases für Administratoren, Mitarbeiter und Kunden.          
 
 .Use Cases
 [plantuml,use-cases,svg]
@@ -28,7 +28,8 @@ Ein in Typescript geschriebener Microservice auf Basis von Node 19.0.0.
 include::use-cases.plantuml[]
 ----
 
-Verschiedene Use Cases für Administratoren, Mitarbeiter und Kunden.
+Das Komponentendiagramm ist ein Strukturdiagramm. Es zeigt eine bestimmte Sicht 
+auf die Struktur des modellierten Systems.
 
 .Komponentendiagramm
 [plantuml,komponenten,svg]
@@ -38,7 +39,7 @@ include::komponenten.plantuml[]
 
 === Die REST-Schnittstelle
 
-Die Präsentationsschicht des Servers zum Steuern von Requests für Lesen und Schreiben.
+GetController ist Teil der Präsentationsschicht. Nimmt Requests entgegen für Suchen.
 
 ."VideospielGetController" für Lesezugriffe an der REST-Schnittstelle
 [plantuml,VideospielGetController,svg]
@@ -46,7 +47,7 @@ Die Präsentationsschicht des Servers zum Steuern von Requests für Lesen und Sc
 include::VideospielGetController.plantuml[]
 ----
 
-Nimmt .
+Teil der Präsentationsschicht. Nimmt Requests entgegen für Schreiben.
 
 ."VideospielWriteController" für Schreibzugriffe an der REST-Schnittstelle
 [plantuml,VideospielGetController,svg]
@@ -56,7 +57,8 @@ include::VideospielWriteController.plantuml[]
 
 === Die GraphQL-Schnittstelle
 
-Donec sollicitudin molestie malesuada. Donec rutrum congue leo eget malesuada.
+GraphQL ermöglicht eine zustandslose Abfrage. Der QueryResolver nimmt 
+Requests entgegen für Suchen.
 
 .VideospielQueryResolver für Lesezugriffe an der GraphQL-Schnittstelle
 [plantuml,VideospielQueryResolver,svg]
@@ -64,8 +66,7 @@ Donec sollicitudin molestie malesuada. Donec rutrum congue leo eget malesuada.
 include::VideospielQueryResolver.plantuml[]
 ----
 
-Donec sollicitudin molestie malesuada. Praesent sapien massa, convallis a
-pellentesque nec, egestas non nisi.
+Der MutationResolver nimmt Requests entgegen für Schreiben.
 
 .VideospielMutationResolver für Schreibzugriffe an der GraphQL-Schnittstelle
 [plantuml,VideospielMutationResolver,svg]
@@ -75,7 +76,7 @@ include::VideospielMutationResolver.plantuml[]
 
 === Der Anwendungskern
 
-Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada.
+Gehört zum Anwendungskern und verarbeitet Suchanfragen.
 
 ."VideospielReadService" im Anwendungskern
 [plantuml,VideospielReadService,svg]
@@ -83,8 +84,7 @@ Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada.
 include::VideospielReadService.plantuml[]
 ----
 
-Pellentesque in ipsum id orci porta dapibus. Donec rutrum congue leo eget
-malesuada.
+Gehört zum Anwendungskern und verarbeitet Schreibanfragen.
 
 ."VideospielWriteService" im Anwendungskern
 [plantuml,VideospielWriteService,svg]
@@ -94,8 +94,7 @@ include::VideospielWriteService.plantuml[]
 
 === Klasse für Entities
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur arcu erat,
-accumsan id imperdiet et, porttitor at sem.
+Die Entity Videospiel, als Aggregate Root.
 
 .Entity
 [plantuml,Videospiel,svg]
