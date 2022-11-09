@@ -185,7 +185,7 @@ describe('GraphQL Mutations', () => {
         const { update } = data.data!;
 
         // Der Wert der Mutation ist die neue Versionsnummer
-        expect(update).toBe(1);
+        expect(update).toBe(0);
     });
 
     // -------------------------------------------------------------------------
@@ -202,14 +202,14 @@ describe('GraphQL Mutations', () => {
                             id: "00000000-0000-0000-0000-000000000003",
                             version: 1,
                             titel: "?!$",
-                            rating: 999,
-                            platform: Windows,
-                            publisher: FOO_PUBLISHER,
-                            preis: -999,
-                            rabatt: 999,
-                            datum: "123",
-                            speicherplatz: 22.2,
-                            homepage: "?!$",
+                            rating: 9,
+                            platform: IOS,
+                            publisher: EA,
+                            preis: -99.99,
+                            rabatt: 1.099,
+                            datum: "-01-02",
+                            speicherplatz: -44.4,
+                            homepage: "?!$"
                         }
                     )
                 }
@@ -257,7 +257,9 @@ describe('GraphQL Mutations', () => {
             ),
         );
         expect(message).toEqual(
-            expect.stringContaining('Der Speicherplatz reicht nicht aus.'),
+            expect.stringContaining(
+                'Der Speicherplatz darf nicht negativ sein.',
+            ),
         );
         expect(message).toEqual(
             expect.stringContaining('Die Homepage ist nicht korrekt.'),
