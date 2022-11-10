@@ -30,7 +30,7 @@ Content-Type: application/json
 Authorization: Bearer {{login.response.body.$.token}}
 If-Match: "0"
 
-< .\json\videospiel-40-put.json
+< .\json\videospiel-50-put.json
 
 ### Vorhandenes Videospiel *OHNE* Versionsnummer aktualisieren
 PUT {{restUrl}}/00000000-0000-0000-0000-000000000040
