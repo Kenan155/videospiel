@@ -6,7 +6,7 @@ Anpassungen:
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "buch.name" -}}
+{{- define "videospiel.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -15,7 +15,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "buch.fullname" -}}
+{{- define "videospiel.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -31,7 +31,7 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "buch.chart" -}}
+{{- define "videospiel.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -42,9 +42,9 @@ https://kubernetes.io/docs/reference/labels-annotations-taints
 https://helm.sh/docs/chart_best_practices/labels/#standard-labels
 https://hub.armosec.io/docs/configuration_parameter_recommendedlabels
 */}}
-{{- define "buch.labels" -}}
-helm.sh/chart: {{ include "buch.chart" . }}
-{{ include "buch.selectorLabels" . }}
+{{- define "videospiel.labels" -}}
+helm.sh/chart: {{ include "videospiel.chart" . }}
+{{ include "videospiel.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -56,8 +56,8 @@ app.kubernetes.io/part-of: acme
 {{/*
 Selector labels
 */}}
-{{- define "buch.selectorLabels" -}}
-app: {{ include "buch.name" . }}
-app.kubernetes.io/name: {{ include "buch.name" . }}
+{{- define "videospiel.selectorLabels" -}}
+app: {{ include "videospiel.name" . }}
+app.kubernetes.io/name: {{ include "videospiel.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
