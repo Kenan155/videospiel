@@ -24,6 +24,14 @@ If-Match: "0"
 
 < .\json\videospiel-40-put.json
 
+### Vorhandenes Videospiel mit ungueltigen Daten aktualisieren
+PUT {{restUrl}}/00000000-0000-0000-0000-000000000040
+Content-Type: application/json
+Authorization: Bearer {{login.response.body.$.token}}
+If-Match: "0"
+
+< .\json\videospiel-40-put-invalid.json
+
 ### NICHT-Vorhandenes Videospiel aktualisieren
 PUT {{restUrl}}/99999999-9999-9999-9999-999999999999
 Content-Type: application/json
@@ -55,10 +63,4 @@ Authorization: Bearer {{login.response.body.$.token}}
 
 < .\json\videospiel-40-put.json
 
-### Vorhandenes Videospiel mit ungueltigen Daten aktualisieren
-PUT {{restUrl}}/00000000-0000-0000-0000-000000000040
-Content-Type: application/json
-Authorization: Bearer {{login.response.body.$.token}}
-If-Match: "0"
 
-< .\json\videospiel-40-put-invalid.json
