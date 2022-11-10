@@ -5,14 +5,14 @@ apiVersion: autoscaling/v2beta1
 # Anwendung bereitgestellt werden
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "buch.fullname" . }}
+  name: {{ include "videospiel.fullname" . }}
   labels:
-    {{- include "buch.labels" . | nindent 4 }}
+    {{- include "videospiel.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "buch.fullname" . }}
+    name: {{ include "videospiel.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:
