@@ -83,7 +83,7 @@ pipeline {
 
                 sh 'curl --silent --fail --show-error --location https://deb.nodesource.com/setup_18.x | bash -; apt-get install --no-install-recommends --yes --show-progress nodejs'
                 sh 'node --version'
-                sh 'npm i -g npm@8.18.0'
+                sh 'npm i -g npm@9.0.1'
                 sh 'npm --version'
 
                 // https://packages.debian.org/stable/python/python3
@@ -102,7 +102,7 @@ pipeline {
                 // "clean install", Dauer: ca. 5 Minuten
                 sh 'npm ci --omit=dev --no-package-lock --force'
                 sh 'npm i -D typescript --no-package-lock --force'
-                //sh 'npm audit fix'
+                sh 'npm audit fix'
             }
         }
 

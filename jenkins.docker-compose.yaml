@@ -53,10 +53,10 @@ services:
       TZ: Europe/Berlin
     container_name: jenkins
     hostname: jenkins
-    #deploy:
-    #  resources:
-    #    limits:
-    #      cpus: "2"
-    #      memory: 4096M
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: "2"
+    #       memory: 4096M
 networks:
   jenkins: {}
