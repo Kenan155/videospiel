@@ -577,7 +577,7 @@ Im Verzeichnis `extras\helm` ist ein Helm-Chart für die Entwicklung des
 Appservers. Wenn das Docker-Image erstellt ist (s.o.), kann die Installation in
 Kubernetes durchgeführt werden mit
 
-- `helm install buch . -f values.yaml -f dev.yaml` in `extras\helm`
+- `helm install videospiel . -f values.yaml -f dev.yaml` in `extras\helm`
 - `helmfile apply` mittels `helmfile.yaml` im Wurzelverzeichnis
 - `skaffold dev` mittels `skaffold.yaml` im Wurzelverzeichnis
 
