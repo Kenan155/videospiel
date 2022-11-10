@@ -25,7 +25,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ include "buch.fullname" . }}
+                name: {{ include "videospiel.fullname" . }}
                 port:
                   name: http-svc
                   #number: 3000
