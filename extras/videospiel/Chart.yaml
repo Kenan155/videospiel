@@ -1,12 +1,12 @@
-# Aufruf: helm install [--debug --dry-run] buch . -f values.yaml -f dev.yaml
+# Aufruf: helm install [--debug --dry-run] videospiel . -f values.yaml -f dev.yaml
 #           ggf. zusaetzlich --dry-run
-#         helm uninstall buch
+#         helm uninstall videospiel
 
-# Metadaten generiert durch: helm create buch
+# Metadaten generiert durch: helm create videospiel
 
 apiVersion: v2
-name: buch
-description: Helm Chart für buch
+name: videospiel
+description: Helm Chart für videospiel
 
 # A chart can be either an 'application' or a 'library' chart.
 #
