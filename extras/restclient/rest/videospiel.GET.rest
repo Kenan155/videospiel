@@ -8,6 +8,9 @@ GET {{restUrl}}
 ### Suche mit vorhandener Videospiel-ID
 GET {{restUrl}}/00000000-0000-0000-0000-000000000001
 
+### Suche mit ungueltiger Videospiel-ID
+GET {{restUrl}}/YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY
+
 ### Suche mit vorhandener Videospiel-ID und Versionsnummer
 GET {{restUrl}}/00000000-0000-0000-0000-000000000001
 If-None-Match: "0"
@@ -15,9 +18,6 @@ If-None-Match: "0"
 ### Suche mit vorhandener Videospiel-ID und falscher Versionsnummer
 GET {{restUrl}}/00000000-0000-0000-0000-000000000001
 If-None-Match: 0
-
-### Suche mit ungueltiger Videospiel-ID
-GET {{restUrl}}/YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY
 
 ### Suche mit nicht-vorhandener Videospiel-ID
 GET {{restUrl}}/99999999-9999-9999-9999-999999999999
